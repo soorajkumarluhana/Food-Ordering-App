@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodorderingapp/Widgets/categories.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -74,38 +75,75 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 5,
             ),
+            categories(),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text("Featured",
+                  style: TextStyle(
+                      fontWeight: FontWeight.normal,
+                      fontSize: 20,
+                      color: Colors.grey)),
+            ),
+            
             Container(
-                height: 120,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (_, index) {
-                      return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.red.shade50,
-                        offset: Offset(4, 6),
-                        blurRadius: 20
-                      )
-                    ] 
-                  ),
-                 child: Padding(
-                   padding: const EdgeInsets.all(4.0),
-                   child: Image.asset("images/burger.jpg", width: 50,),
-                 ), 
-                    ),
-                   SizedBox(height: 5,),
-                  Text("Salad", style: TextStyle(fontSize: 14, color: Colors.black),) 
-                  ],
-                ),
-              );
-            }))
+            height: 220,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                  itemCount: 10,
+                  itemBuilder: (BuildContext, index) {
+                    return Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Container(
+                        height: 240,
+                        width: 200,
+                        decoration:
+                          BoxDecoration(color: Colors.white, boxShadow: [
+                          BoxShadow(
+                            offset: Offset(4, 6),
+                            color: Colors.grey.shade100, blurRadius: 4)
+                        ]),
+                        child: Column(
+                          children: [
+                             Image.asset("images/burger.jpg", width: 200, height: 130,),
+                          Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Text("Hello", style: TextStyle(fontSize: 16),),
+                              ),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.favorite_border, color: Colors.red, size: 18,),
+                            )
+                            ],
+                          ),
+                        Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text("4.7", style: TextStyle(color: Colors.grey, fontSize: 14),),
+                            ),
+                            SizedBox(width: 2,),
+                              Icon(Icons.star, color: Colors.red, size: 16,),
+                              Icon(Icons.star, color: Colors.red, size: 16,),
+                              Icon(Icons.star, color: Colors.red, size: 16,),
+                              Icon(Icons.star, color: Colors.red, size: 16,),
+                              Icon(Icons.star, color: Colors.grey, size: 16,),
+                             SizedBox(width: 31,),
+                            Text("\$12.99", style: TextStyle(fontWeight: FontWeight.bold),)
+                          ],
+                        )
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+            )
+
           ],
         ),
       ),
