@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:foodorderingapp/Widgets/Products.dart';
 import 'package:foodorderingapp/Widgets/categories.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
-  @override
+@override
   _HomeState createState() => _HomeState();
 }
 
@@ -87,65 +88,63 @@ class _HomeState extends State<Home> {
                       fontSize: 20,
                       color: Colors.grey)),
             ),
-            
-            Container(
-            height: 220,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                  itemCount: 10,
-                  itemBuilder: (BuildContext, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Container(
-                        height: 240,
-                        width: 200,
-                        decoration:
-                          BoxDecoration(color: Colors.white, boxShadow: [
-                          BoxShadow(
-                            offset: Offset(4, 6),
-                            color: Colors.grey.shade100, blurRadius: 4)
-                        ]),
-                        child: Column(
-                          children: [
-                             Image.asset("images/burger.jpg", width: 200, height: 130,),
-                          Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text("Hello", style: TextStyle(fontSize: 16),),
-                              ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.favorite_border, color: Colors.red, size: 18,),
-                            )
-                            ],
-                          ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text("4.7", style: TextStyle(color: Colors.grey, fontSize: 14),),
-                            ),
-                            SizedBox(width: 2,),
-                              Icon(Icons.star, color: Colors.red, size: 16,),
-                              Icon(Icons.star, color: Colors.red, size: 16,),
-                              Icon(Icons.star, color: Colors.red, size: 16,),
-                              Icon(Icons.star, color: Colors.red, size: 16,),
-                              Icon(Icons.star, color: Colors.grey, size: 16,),
-                             SizedBox(width: 31,),
-                            Text("\$12.99", style: TextStyle(fontWeight: FontWeight.bold),)
-                          ],
-                        )
-                          ],
-                        ),
-                      ),
-                    );
-                  }),
-            )
+           Products(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text("Popular", style: TextStyle(
+              fontWeight: FontWeight.normal,
+              fontSize: 20,
+              color: Colors.grey
+            ), ),
+          ),
 
+        Stack( 
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset("images/burger2.jpg")),
+            ),
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+              Icon(Icons.favorite, color: Colors.red,)
+              ],
+            ),
+          )  
+          ],
+        )
+                      
           ],
         ),
+       bottomNavigationBar: Container(
+         color: Colors.white,
+         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+           children: [
+             Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Icon(Icons.home, size: 40,),
+             ),
+              Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Icon(Icons.local_activity,size: 40,),
+             ),
+              Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Icon(Icons.shopping_bag, size: 40,),
+             ),
+              Padding(
+               padding: const EdgeInsets.all(8.0),
+               child: Icon(Icons.person, size: 40,),
+             )
+           ],
+         ),
+       ),   
+         
       ),
     );
   }
