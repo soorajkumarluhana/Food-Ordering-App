@@ -98,7 +98,7 @@ class _HomeState extends State<Home> {
             ), ),
           ),
 
-        Stack( 
+        Stack(  
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -107,17 +107,69 @@ class _HomeState extends State<Home> {
                 child: Image.asset("images/burger2.jpg")),
             ),
           Padding(
-            padding: const EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(12.0),
             child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-              Icon(Icons.favorite, color: Colors.red,)
+             Container(
+              width: 25,
+             child:  Icon(Icons.favorite, color: Colors.white,size: 14, ),
+              decoration: BoxDecoration(
+              color: Colors.red,  
+              borderRadius: BorderRadius.circular(20)
+              ), 
+             ),
+              Container(
+                width: 50,
+                height: 30,
+              child: Row(
+               mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                children: [
+                Icon(Icons.star, color: Colors.orange,),
+                Padding(
+                  padding: const EdgeInsets.all(3.0),
+                  child: Text("4.5"),
+                )
+                ],
+              ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5)
+                ),
+              )
               ],
             ),
-          )  
+          ),
+          Positioned.fill(
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+               width: 375,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                     bottomLeft: Radius.circular(20) ),
+                  ),
+                 child: Row( 
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                   children: [
+                 Text("Burger \n by: Pizza hut", style: TextStyle(
+                   color: Colors.white,
+                   fontWeight: FontWeight.bold 
+                 ),),
+                   Text("\$12.99", 
+                   style: TextStyle(
+                     color: Colors.white,
+                     fontSize: 16
+                   ),),                   
+                   ],
+                 ), 
+                ),
+              ),
+            ))
           ],
         )
-                      
           ],
         ),
        bottomNavigationBar: Container(
@@ -127,7 +179,7 @@ class _HomeState extends State<Home> {
            children: [
              Padding(
                padding: const EdgeInsets.all(8.0),
-               child: Icon(Icons.home, size: 40,),
+               child: Icon(Icons.home, size: 40, ),
              ),
               Padding(
                padding: const EdgeInsets.all(8.0),
